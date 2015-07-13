@@ -23920,7 +23920,6 @@
 	    bio: React.PropTypes.object.isRequired
 	  },
 	  render: function render() {
-	    console.log(this.props.bio);
 	    return React.createElement(
 	      "div",
 	      null,
