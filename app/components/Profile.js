@@ -16,13 +16,15 @@ var Profile = React.createClass({
     }
   },
   componentDidMount: function() {
-    // this.ref = new Firebase('https://github-notetaker-96.firebaseio.com');
-    this.ref = new Firebase('https://github-note-taker.firebaseio.com');
+    this.ref = new Firebase('https://github-notetaker-96.firebaseio.com');
     var childRef = this.ref.child(this.getParams().username);
     this.bindAsArray(childRef, 'notes');
   },
   componentWillUnmount: function() {
     this.unbind('notes');
+  },
+  handlerAddNote: function(newNote) {
+    this.ref.child(this.getParams().username).set(this.state.notes.concat([newNote]));
   },
   render: function() {
     var username = this.getParams().username;
@@ -35,10 +37,13 @@ var Profile = React.createClass({
           <Repos username={username} repos={this.state.repos} />
         </div>
         <div className="col-md-4">
-          <Notes username={username} notes={this.state.notes} />
+          <Notes
+            username={username}
+            notes={this.state.notes}
+            addNote={this.handlerAddNote} />
         </div>
       </div>
-    );
+    )
   }
 });
 
