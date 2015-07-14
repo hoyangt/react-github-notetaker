@@ -23980,13 +23980,13 @@
 	          "Followers: ",
 	          this.props.bio.followers
 	        ),
-	        this.props.bio.following && React.createElement(
+	        React.createElement(
 	          "li",
 	          { className: "list-group-item" },
 	          "Following: ",
 	          this.props.bio.following
 	        ),
-	        this.props.bio.following && React.createElement(
+	        React.createElement(
 	          "li",
 	          { className: "list-group-item" },
 	          "Public Repos: ",

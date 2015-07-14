@@ -17,8 +17,8 @@ var UserProfile = React.createClass({
           {this.props.bio.location && <li className="list-group-item">Location: {this.props.bio.location}</li>}
           {this.props.bio.company && <li className="list-group-item">Company: {this.props.bio.company}</li>}
           {<li className="list-group-item">Followers: {this.props.bio.followers}</li>}
-          {this.props.bio.following && <li className="list-group-item">Following: {this.props.bio.following}</li>}
-          {this.props.bio.following && <li className="list-group-item">Public Repos: {this.props.bio.public_repos}</li>}
+          {<li className="list-group-item">Following: {this.props.bio.following}</li>}
+          {<li className="list-group-item">Public Repos: {this.props.bio.public_repos}</li>}
           {this.props.bio.blog && <li className="list-group-item">Blog: <a href={this.props.bio.blog}> {this.props.bio.blog}</a></li>}
         </ul>
       </div>
