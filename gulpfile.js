@@ -1,21 +1,27 @@
+'use strict';
+
 var gulp = require('gulp');
 var livereload = require('gulp-livereload');
 var webpack = require("gulp-webpack");
 
-var webpackConfig = require('./webpack.config');
+var webpackConfig = require('./webpack.config.js');
 
-gulp.task("webpack", function() {
+gulp.task('webpack', function() {
     return gulp.src('./app/App.js')
         .pipe(webpack(webpackConfig))
-        .pipe(gulp.dest('.'));
+        .pipe(gulp.dest('.'))
+        .pipe(livereload());;
+});
+
+gulp.task('watchIndex', function() {
+  gulp.src('public/index.html')
+    .pipe(livereload());
 });
 
 gulp.task('watch', function() {
-    livereload.listen();
+    livereload.listen({ start: true });
     gulp.watch(['app/*.js', 'app/**/*.js'], ['webpack']);
+    gulp.watch('public/index.html', ['watchIndex']);
 });
 
-gulp.task('default', [
-    'webpack',
-    'watch'
-]);
+gulp.task('default', ['webpack','watch']);
