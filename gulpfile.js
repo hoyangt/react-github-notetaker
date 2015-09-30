@@ -3,12 +3,16 @@
 var gulp = require('gulp');
 var livereload = require('gulp-livereload');
 var webpack = require("gulp-webpack");
+var notify = require('gulp-notify');
 
 var webpackConfig = require('./webpack.config.js');
 
 gulp.task('webpack', function() {
     return gulp.src('./app/App.js')
-        .pipe(webpack(webpackConfig))
+        .pipe(webpack(webpackConfig), null,
+          function(err, stats) {
+            notify.onError("Error: <%= err %>");
+          })
         .pipe(gulp.dest('.'))
         .pipe(livereload());;
 });
