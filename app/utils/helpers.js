@@ -1,23 +1,23 @@
-import axios from 'axios';
+var axios = require('axios');
 
 function getRepos(username){
-  return axios.get(`https://api.github.com/users/${username}/repos`);
+  return axios.get('https://api.github.com/users/' + username + '/repos');
 }
 
 function getUserInfo(username){
-  return axios.get(`https://api.github.com/users/${username}`);
+  return axios.get('https://api.github.com/users/' + username);
 }
 
 var helpers = {
-  getGithubInfo(username) {
+  getGithubInfo: function(username){
     return axios.all([getRepos(username), getUserInfo(username)])
-      .then((arr) => {
+      .then(function(arr){
         return {
           repos: arr[0].data,
           bio: arr[1].data
         }
-      });
+      })
   }
 };
 
-export default helpers;
+module.exports = helpers;
