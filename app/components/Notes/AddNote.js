@@ -12,7 +12,7 @@ class AddNode extends React.Component {
       <div className="input-group">
         <input type="text" className="form-control" ref="note" placeholder="Add New Note" />
         <span className="input-group-btn">
-          <button className="btn btn=default" type="button" onClick={this.handleSubmit.bind(this)}> Submit </button>
+          <button className="btn btn-default" type="button" onClick={this.handleSubmit.bind(this)}> Submit </button>
         </span>
       </div>
     )

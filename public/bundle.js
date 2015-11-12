@@ -24059,7 +24059,7 @@
 	          { className: 'input-group-btn' },
 	          _react2['default'].createElement(
 	            'button',
-	            { className: 'btn btn=default', type: 'button', onClick: this.handleSubmit.bind(this) },
+	            { className: 'btn btn-default', type: 'button', onClick: this.handleSubmit.bind(this) },
 	            ' Submit '
 	          )
 	        )
