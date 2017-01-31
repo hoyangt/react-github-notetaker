@@ -1,10 +1,11 @@
 {
   "name": "github-notetaker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple project of react and react Router with firebase",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack -w",
+    "build": "webpack -p"
   },
   "author": "Ho-Yang Tsai",
   "repository": {
@@ -20,14 +21,11 @@
     "reactfire": "^0.4.0"
   },
   "devDependencies": {
-    "babel-core": "^5.6.15",
-    "babel-loader": "^5.2.2",
-    "gulp": "^3.9.0",
-    "gulp-livereload": "^3.8.0",
-    "gulp-load-plugins": "^1.2.0",
-    "gulp-webpack": "^1.5.0",
-    "node-libs-browser": "^0.5.2",
-    "st": "^1.1.0",
-    "webpack": "^1.10.0"
+     "babel-core": "^5.6.15",
+     "babel-loader": "^5.2.2",
+     "gulp": "^3.9.0",
+     "gulp-connect": "^5.0.0",
+     "webpack": "^1.10.0",
+    "webpack-stream": "^3.2.0"
   }
 }
