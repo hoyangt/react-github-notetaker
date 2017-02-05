@@ -5,6 +5,12 @@ var path = require('path');
 
 var webpackConfig = require('./webpack.config.js');
 
+gulp.task('html', function() {
+  return gulp.src('./app/**/*.html')
+    .pipe(gulp.dest('./public'))
+    .pipe(connect.reload());
+});
+
 gulp.task('webpack', function() {
   return gulp.src('./app/App.js')
     .pipe(webpack(webpackConfig))
@@ -13,7 +19,8 @@ gulp.task('webpack', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(['app/*.js', 'app/**/*.js'], ['webpack']);
+  gulp.watch(['app/**/*.js'], ['webpack']);
+  gulp.watch('./app/**/*.html', ['html']);
 });
 
 gulp.task('server', function(done) {
@@ -24,4 +31,4 @@ gulp.task('server', function(done) {
   });
 });
 
-gulp.task('default', ['server', 'watch']);
+gulp.task('default', ['server', 'html', 'webpack', 'watch']);
