@@ -14,18 +14,18 @@
   },
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.5.4",
+    "axios": "^0.21.1",
     "firebase": "^2.2.7",
-    "react": "^0.13.3",
-    "react-router": "^0.13.3",
+    "react": "^0.14.10",
+    "react-router": "^0.13.6",
     "reactfire": "^0.4.0"
   },
   "devDependencies": {
-     "babel-core": "^5.6.15",
-     "babel-loader": "^5.2.2",
-     "gulp": "^3.9.0",
-     "gulp-connect": "^5.0.0",
-     "webpack": "^1.10.0",
+    "babel-core": "^5.6.15",
+    "babel-loader": "^5.2.2",
+    "gulp": "^3.9.0",
+    "gulp-connect": "^5.0.0",
+    "webpack": "^1.10.0",
     "webpack-stream": "^3.2.0"
   }
 }
