@@ -1,22 +1,43 @@
-var React = require('react');
-var RouteHandler = require('react-router').RouteHandler;
-var SearchGithub = require('./SearchGithub');
+import React from 'react';
 
-var Main = React.createClass({
-  render: function(){
-    return (
-      <div className="main-container">
-        <nav className="navbar navbar-default" role="navigation">
-          <div className="col-sm-7 col-sm-offset-2" style={{marginTop: 15}}>
-            <SearchGithub />
-          </div>
-        </nav>
-        <div className="container">
-          <RouteHandler />
-        </div>
-      </div>
-    )
-  }
-});
+import {
+  Switch,
+  Route,
+  Redirect,
+  useRouteMatch,
+} from 'react-router-dom';
 
-module.exports = Main;
+import Home from './Home';
+import Profile from './Profile';
+
+const routes = [
+  {
+    path: '/',
+    exact: true,
+    component: Home,
+  },
+  {
+    path: '/profile/:username',
+    component: Profile,
+  },
+]
+
+const RouteConfig = (route) => {
+  return (
+    <Route path={route.path} exact={route.exact}>
+      <route.component routes={route.routes} />
+    </Route>
+  )
+}
+
+const Main = () => {
+  return (
+    <Switch>
+      {routes.map((route) => (
+        <RouteConfig {...route} key={route.path} />
+      ))}
+    </Switch>
+  )
+};
+
+export default Main;

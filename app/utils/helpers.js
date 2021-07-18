@@ -1,4 +1,4 @@
-var axios = require('axios');
+import axios from 'axios';
 
 function getRepos(username){
   return axios.get('https://api.github.com/users/' + username + '/repos');
@@ -8,7 +8,7 @@ function getUserInfo(username){
   return axios.get('https://api.github.com/users/' + username);
 }
 
-var helpers = {
+const helpers = {
   getGithubInfo: function(username){
     return axios.all([getRepos(username), getUserInfo(username)])
       .then(function(arr){
@@ -20,4 +20,4 @@ var helpers = {
   }
 };
 
-module.exports = helpers;
+export default helpers;
