@@ -5,16 +5,19 @@ React Github Notetaker is a react with firebase example based on [Building a Rea
 This example is covered react, webpack and some of ES6 features.
 
 ## Installation
+
 ```bash
 npm install
 ```
 
 ## Development
+
 ```bash
-gulp
+npx gulp
 ```
 
 ## Build
+
 ```bash
 npm run build
 ```
